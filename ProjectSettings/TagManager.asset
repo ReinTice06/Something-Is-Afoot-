@@ -19,6 +19,7 @@ TagManager:
   - ConveyerStart
   - ConveyerEnd
   - Switch
+  - DialoguePanel
   layers:
   - Default
   - TransparentFX

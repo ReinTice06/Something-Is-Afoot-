@@ -7692,6 +7692,9 @@ PrefabInstance:
         Scroll
         ''Mouse Wheel'' to zoom camera
 
+
+        Press ''ESC'' to pause
+
 '
       objectReference: {fileID: 0}
     - target: {fileID: 4655648723420948409, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
@@ -7699,8 +7702,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4655648723420948409, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
+      propertyPath: m_fontSize
+      value: 3.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655648723420948409, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
       propertyPath: m_margin.x
       value: 6.2757483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655648723420948409, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 4655648723420948410, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
       propertyPath: m_Enabled
