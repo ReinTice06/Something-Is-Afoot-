@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 185fb7a2aa6c53f43964045351c91677
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ropePartPrefab: {fileID: 3707258826935028619, guid: 7d18eba51ba31b14ab5a995d5b429ef7, type: 3}
+  - parentObject: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
