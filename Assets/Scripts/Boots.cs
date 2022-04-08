@@ -11,6 +11,8 @@ public class Boots : MonoBehaviour
 {
     public static bool BootWheelIsActive = false;
     public GameObject bootWheelUI;
+    public GameObject FireButton;
+    public GameObject WaterButton;
 
     //Boot Variables
     public static float maxPower = 100;
@@ -64,6 +66,10 @@ public class Boots : MonoBehaviour
 
         //Sets power level to full
         SetBootPower();
+
+        //Turn off Fire and Water boot button
+        FireButton.SetActive(false);
+        WaterButton.SetActive(false);
 
     }
 

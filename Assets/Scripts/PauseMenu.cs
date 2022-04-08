@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     public GameObject PauseMenuUI;
+    public GameObject OptionsMenuUI;
     public CameraController cameraScript;
 
     // Update is called once per frame
@@ -78,5 +79,21 @@ public class PauseMenu : MonoBehaviour
         //Quits game
         Application.Quit();
         Debug.Log("Quitting Game");
+    }
+    //Options Window
+    public void options()
+    {
+        //Turns off pause menu ui
+        PauseMenuUI.SetActive(false);
+        //Turns on options menu ui
+        OptionsMenuUI.SetActive(true);
+    }
+    //Back to Pause Menu UI
+    public void back()
+    {
+        //Turns off options menu ui
+        OptionsMenuUI.SetActive(false);
+        //Turns on pause menu ui
+        PauseMenuUI.SetActive(true);
     }
 }

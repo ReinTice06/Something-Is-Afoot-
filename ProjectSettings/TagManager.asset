@@ -19,6 +19,9 @@ TagManager:
   - ConveyerStart
   - ConveyerEnd
   - Switch
+  - DialoguePanel
+  - FireBoots
+  - WaterBoots
   layers:
   - Default
   - TransparentFX

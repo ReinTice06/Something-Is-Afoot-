@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private InputActionReference CameraControl;
     private float mouseScrollY;
-    private float zoomSpeed = 30f;
+    public float zoomSpeed = 30f;
     public float rotationSpeed = 1;
     public Transform Target, Player;
     float mouseX, mouseY;
@@ -112,6 +112,17 @@ public class CameraController : MonoBehaviour
 
         }
 
+    }
+
+    //Adjust sensitivity with slider in pause menu
+    public void AdjustSensitivity(float newSensitivity)
+    {
+        rotationSpeed = newSensitivity;
+    }
+    //Adjust zoom sensitivity with slider in pause menu
+    public void AdjustZoom(float newZoomSpeed)
+    {
+        zoomSpeed = newZoomSpeed;
     }
 
 }
