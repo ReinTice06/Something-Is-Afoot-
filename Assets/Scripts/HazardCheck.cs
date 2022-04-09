@@ -68,6 +68,30 @@ public class HazardCheck : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("PistonCollider"))
+        {
+            if (other.gameObject.GetComponent<PistonCollider>().killPlayer)
+            {
+                //Lose all power
+                GetComponent<Boots>().losePower(100);
+                GetComponent<Boots>().powerBar.SetPower(Boots.currentPower);
+                Debug.Log("Player Got Smashed By Pistons");
+            }
+        }
+        //if (other.gameObject.CompareTag("PistonCollider2"))
+        //{
+        //    if (other.gameObject.GetComponent<PistonCollider>().killPlayer)
+        //    {
+        //        //Lose all power
+        //        GetComponent<Boots>().losePower(100);
+        //        GetComponent<Boots>().powerBar.SetPower(Boots.currentPower);
+        //        Debug.Log("Player Got Smashed By Pistons");
+        //    }
+        //}
+    }
+
     public void OnTriggerExit(Collider other)
     {
         //Stop taking water power damage

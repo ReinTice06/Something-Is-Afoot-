@@ -22,6 +22,8 @@ TagManager:
   - DialoguePanel
   - FireBoots
   - WaterBoots
+  - PistonCollider
+  - PistonCollider2
   layers:
   - Default
   - TransparentFX
