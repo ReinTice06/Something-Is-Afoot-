@@ -17,6 +17,11 @@ public class RopeSpawn : MonoBehaviour
     [SerializeField]
     bool reset, spawn, snapFirst, snapLast;
 
+    public GameObject swingPart;
+
+    [SerializeField]
+    public float moveSpeed = 3f, radius = 3f;
+    public float angle = 15f;
 
     void Update()
     {
@@ -35,6 +40,14 @@ public class RopeSpawn : MonoBehaviour
             spawn = false;
         }
 
+        foreach (GameObject child in transform)
+        {
+            if (child.name == "23")
+            {
+                angle += moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+            }
+        }
     }
 
     public void Spawn()
