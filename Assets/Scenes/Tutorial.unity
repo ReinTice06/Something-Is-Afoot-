@@ -33,11 +33,11 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_DefaultReflectionResolution: 512
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1470816787}
   m_IndirectSpecularColor: {r: 0.18284312, g: 0.22601855, b: 0.29229277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 191be780c67f687498c1bcda39a91b50, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5dd5d14c10998094c9385324d85b4865, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -7823,6 +7823,10 @@ PrefabInstance:
     - target: {fileID: 3147868581444881290, guid: ef9da7167e3e3e84cb0b4f6a3e1ec7b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147868581444881294, guid: ef9da7167e3e3e84cb0b4f6a3e1ec7b0, type: 3}
+      propertyPath: spawnRate
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3147868581444881329, guid: ef9da7167e3e3e84cb0b4f6a3e1ec7b0, type: 3}
       propertyPath: m_Name
