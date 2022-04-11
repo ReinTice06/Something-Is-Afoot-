@@ -5,7 +5,7 @@ using UnityEngine;
 public class animationController : MonoBehaviour
 {
 
-    Animator animator;
+    public Animator animator;
     public Player thePlayer;
 
     // Start is called before the first frame update
@@ -40,5 +40,22 @@ public class animationController : MonoBehaviour
             thePlayer.controller.height = 1.95f;
             thePlayer.controller.center = new Vector3(0, 1.06f, 0);
         }
+    }
+
+    public void die()
+    {
+        if(thePlayer.playerDied == true)
+        {
+            animator.SetBool("isDying", true);
+            StartCoroutine(thePlayer.playerDeath());
+        }
+    }
+    public void spawn()
+    {
+        if(thePlayer.playerDied == false)
+        {
+            animator.SetBool("isDying", false);
+            StopCoroutine(thePlayer.playerDeath());
+         }
     }
 }

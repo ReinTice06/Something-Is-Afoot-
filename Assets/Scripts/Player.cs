@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     //Bools
     private bool isGrounded;    
     private bool isRespawning;
-    private bool playerDied = false;
+    public bool playerDied = false;
     private bool isCrouched = false;
     public bool crouching = false;
 
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public animationController crouchAnimator;
     private Transform cameraMainTransform;
+    Coroutine deathAnim;
 
     //Vector 3
     private Vector3 playerVelocity;
@@ -93,7 +94,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
+        if (!playerDied)
+        {
+            playerMovement();
+        }
     }
     private void LateUpdate()
     {
@@ -199,10 +203,11 @@ public class Player : MonoBehaviour
         {
             playerDied = true;
             Debug.Log("Power is at 0");
-
             //Respawn the player
-            Respawn();
+            crouchAnimator.die();
             Debug.Log("Player has been respawned");
+            crouchAnimator.spawn();
+
         }
     }
 
@@ -213,6 +218,8 @@ public class Player : MonoBehaviour
         {
             thePlayer.transform.position = respawnPoint;
             theBoots.SetBootPower();
+            crouchAnimator.animator.SetBool("isDying", false);
+            StopCoroutine(playerDeath());
         }
         playerDied = false;
     }
@@ -220,5 +227,16 @@ public class Player : MonoBehaviour
     public void SetSpawnPoint (Vector3 newPosition)
     {
         respawnPoint = newPosition;
+    }
+
+    public IEnumerator playerDeath()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            Respawn();
+            playerDied = false;
+            yield return null;
+        }
     }
 }
