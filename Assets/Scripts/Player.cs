@@ -204,11 +204,11 @@ public class Player : MonoBehaviour
             playerDied = true;
             Debug.Log("Power is at 0");
             //Respawn the player
-            crouchAnimator.die();
+            StartCoroutine(playerDeath());
             Debug.Log("Player has been respawned");
-            crouchAnimator.spawn();
 
         }
+        StopCoroutine(playerDeath());
     }
 
     //Respawn Function
@@ -218,10 +218,12 @@ public class Player : MonoBehaviour
         {
             thePlayer.transform.position = respawnPoint;
             theBoots.SetBootPower();
-            crouchAnimator.animator.SetBool("isDying", false);
-            StopCoroutine(playerDeath());
+            crouchAnimator.animator.SetTrigger("Respawn");
+            crouchAnimator.animator.ResetTrigger("Respawn");
+
         }
         playerDied = false;
+        
     }
 
     public void SetSpawnPoint (Vector3 newPosition)
@@ -233,9 +235,13 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
+            crouchAnimator.animator.SetTrigger("FallDown");
             yield return new WaitForSeconds(3);
             Respawn();
-            playerDied = false;
+            crouchAnimator.animator.ResetTrigger("FallDown");
+
+
+
             yield return null;
         }
     }

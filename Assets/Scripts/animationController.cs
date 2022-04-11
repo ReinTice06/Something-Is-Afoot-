@@ -46,7 +46,7 @@ public class animationController : MonoBehaviour
     {
         if(thePlayer.playerDied == true)
         {
-            animator.SetBool("isDying", true);
+            animator.SetTrigger("FallDown");
             StartCoroutine(thePlayer.playerDeath());
         }
     }
@@ -54,8 +54,10 @@ public class animationController : MonoBehaviour
     {
         if(thePlayer.playerDied == false)
         {
-            animator.SetBool("isDying", false);
+            animator.ResetTrigger("FallDown");
+            animator.SetTrigger("Respawn");
             StopCoroutine(thePlayer.playerDeath());
+            animator.ResetTrigger("Respawn");
          }
     }
 }
