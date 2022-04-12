@@ -196,22 +196,19 @@ public class Player : MonoBehaviour
     //}
 
     //Checks Boot Power Level
-
-
     public void checkForPower()
     {
         //Respawns the player if current boot health is at 0
         if (Boots.currentPower <= 0)
         {
             playerDied = true;
-            //Triggers Death Animation which respawns player
-            crouchAnimator.animator.SetTrigger("Death");
+            Debug.Log("Power is at 0");
+            //Respawn the player
+            StartCoroutine(playerDeath());
+            Debug.Log("Player has been respawned");
+
         }
-        else
-        {
-            //Ensures death animation only happens when dead
-            crouchAnimator.animator.ResetTrigger("Death");
-        }
+        StopCoroutine(playerDeath());
     }
 
     //Respawn Function
@@ -221,12 +218,31 @@ public class Player : MonoBehaviour
         {
             thePlayer.transform.position = respawnPoint;
             theBoots.SetBootPower();
+            crouchAnimator.animator.SetTrigger("Respawn");
+            crouchAnimator.animator.ResetTrigger("Respawn");
+
         }
         playerDied = false;
+        
     }
 
     public void SetSpawnPoint (Vector3 newPosition)
     {
         respawnPoint = newPosition;
-    }    
+    }
+
+    public IEnumerator playerDeath()
+    {
+        while (true)
+        {
+            crouchAnimator.animator.SetTrigger("FallDown");
+            yield return new WaitForSeconds(3);
+            Respawn();
+            crouchAnimator.animator.ResetTrigger("FallDown");
+
+
+
+            yield return null;
+        }
+    }
 }

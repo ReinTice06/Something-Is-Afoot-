@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class animationController : MonoBehaviour
 {
-    public GameObject DeathUI;
+
     public Animator animator;
     public Player thePlayer;
 
@@ -42,27 +42,22 @@ public class animationController : MonoBehaviour
         }
     }
 
-
-    //Functions used in animation events for death and respawn
-    //Enables death UI
-    public void EnableDeathUI()
+    public void die()
     {
-        DeathUI.SetActive(true);
+        if(thePlayer.playerDied == true)
+        {
+            animator.SetTrigger("FallDown");
+            StartCoroutine(thePlayer.playerDeath());
+        }
     }
-    //Disables DeathUI and starts revive animation
-    public void DisableDeathUI()
+    public void spawn()
     {
-        animator.ResetTrigger("Death");
-        DeathUI.SetActive(false);
-        animator.SetTrigger("Revive");
-        Debug.Log("Revive animation started");
-
+        if(thePlayer.playerDied == false)
+        {
+            animator.ResetTrigger("FallDown");
+            animator.SetTrigger("Respawn");
+            StopCoroutine(thePlayer.playerDeath());
+            animator.ResetTrigger("Respawn");
+         }
     }
-    //Clears revive animation and respawns the player
-    public void respawnPlayer()
-    {
-        animator.ResetTrigger("Revive");
-        thePlayer.Respawn();
-    }
-
 }
