@@ -29,13 +29,15 @@ public class Player : MonoBehaviour
     //Floats
     public float currentSpeed;
     [SerializeField]
+    public float runSpeed = 7.0f;
+    [SerializeField]
+    public float crouchSpeed = 2.0f;
+    [SerializeField]
     public float playerSpeed = 4.0f;   
     [SerializeField]
     private float jumpHeight = 1.0f;
     [SerializeField]
     private float gravityValue = -9.81f;
-    [SerializeField]
-    public float crouchSpeed = 2.0f;
     [SerializeField]
     private float rotationSpeed = 4f;
     [SerializeField]
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     
     //Scripts
     public Boots theBoots;
+    public HazardCheck hazardCheck;
     public CharacterController controller;
     public animationController crouchAnimator;
     private Transform cameraMainTransform;
@@ -98,6 +101,8 @@ public class Player : MonoBehaviour
         {
             playerMovement();
         }
+
+        speedCheck();
     }
     private void LateUpdate()
     {
@@ -143,7 +148,6 @@ public class Player : MonoBehaviour
                 crouching = false;
                 crouchAnimator.stand();
             };
-
         }
         
 
@@ -164,6 +168,28 @@ public class Player : MonoBehaviour
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    //Speed Check
+    public void speedCheck()
+    {
+        //Sets Crouch Speed
+        if (crouching == true)
+        {
+            currentSpeed = crouchSpeed;
+        }
+        else
+        {
+            //Checks if base boots are active to give speed boost
+            if (Boots.baseBoot == true && hazardCheck.runBoost == true)
+            {
+                currentSpeed = runSpeed;
+            }
+            else
+            {
+                currentSpeed = playerSpeed;
+            }
+        }
     }
     
     //When Player collides with Collectible it dissapears and shows up on the UI

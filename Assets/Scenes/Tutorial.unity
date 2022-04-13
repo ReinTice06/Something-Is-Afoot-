@@ -5710,6 +5710,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580350470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7304112759948852970, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+  m_PrefabInstance: {fileID: 7304112759683145010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1194a3f764890c141adb3638a2823bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1599025307
 GameObject:
   m_ObjectHideFlags: 0
@@ -7807,6 +7818,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7609959715735860088, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
   m_PrefabInstance: {fileID: 7304112759683145010}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132149141483084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+  m_PrefabInstance: {fileID: 7304112759683145010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149141483082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e105019aa6f3440a4297e110d99111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1052311350266015989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8707,6 +8729,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1063335231}
     - target: {fileID: 7304112759948852964, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: thePlayer
+      value: 
+      objectReference: {fileID: 919132149141483084}
+    - target: {fileID: 7304112759948852964, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: FireButton
       value: 
       objectReference: {fileID: 244358073}
@@ -8718,6 +8744,14 @@ PrefabInstance:
       propertyPath: bootWheelUI
       value: 
       objectReference: {fileID: 145393718}
+    - target: {fileID: 7304112759948852964, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: hazardCheck
+      value: 
+      objectReference: {fileID: 1580350470}
+    - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: hazardCheck
+      value: 
+      objectReference: {fileID: 1580350470}
     - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: CollectiblesText
       value: 

@@ -37,6 +37,8 @@ public class Boots : MonoBehaviour
 
 
     public PowerBar powerBar;
+    public Player thePlayer;
+    public HazardCheck hazardCheck;
 
     [SerializeField]
     public InputActionReference bootControl;
@@ -62,7 +64,7 @@ public class Boots : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        thePlayer.currentSpeed = thePlayer.runSpeed;
 
         //Sets power level to full
         SetBootPower();
@@ -85,6 +87,7 @@ public class Boots : MonoBehaviour
         //Checks if boot wheel is already on the screen
         if (BootWheelIsActive == false)
         {
+            
             //Opens up the boot wheel
             bootControl.action.performed += context =>
             {
@@ -134,6 +137,7 @@ public class Boots : MonoBehaviour
     //Fire boot button
     public void FireBootButton()
     {
+        
         //Turns on fire boots
         fireBoot = true;
         //Sets power bar to fire boot power bar
@@ -158,6 +162,7 @@ public class Boots : MonoBehaviour
     //Water boot button
     public void WaterBootButton()
     {
+        
         //Turns on water boots
         waterBoot = true;
         //Sets power bar to water power bar
