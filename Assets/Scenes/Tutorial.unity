@@ -8749,6 +8749,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1580350470}
     - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: runControl
+      value: 
+      objectReference: {fileID: 647280208532706559, guid: 6832c3a104830aa45b644b966bdd44c1, type: 3}
+    - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: hazardCheck
       value: 
       objectReference: {fileID: 1580350470}

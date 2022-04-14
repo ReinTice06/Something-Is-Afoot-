@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private InputActionReference jumpControl;
     [SerializeField]
     private InputActionReference crouchControl;
+    [SerializeField]
+    private InputActionReference runControl;
 
     //GameObjects
     public GameObject playerBody;
@@ -55,6 +57,8 @@ public class Player : MonoBehaviour
     private Vector3 playerVelocity;
     private Vector3 respawnPoint;
 
+
+    Coroutine baseBootDamage;
     //Collectables
 
 
@@ -63,6 +67,7 @@ public class Player : MonoBehaviour
         movementControl.action.Enable();
         jumpControl.action.Enable();
         crouchControl.action.Enable();
+        runControl.action.Enable();
     }
 
     private void OnDisable()
@@ -70,6 +75,7 @@ public class Player : MonoBehaviour
         movementControl.action.Disable();
         jumpControl.action.Enable();
         crouchControl.action.Enable();
+        runControl.action.Enable();
     }
 
 
@@ -103,6 +109,7 @@ public class Player : MonoBehaviour
         }
 
         speedCheck();
+        baseBoost();
     }
     private void LateUpdate()
     {
@@ -153,6 +160,44 @@ public class Player : MonoBehaviour
 
     }
 
+    //Run control for base boots
+    public void baseBoost()
+    {
+        //If base boots are worn
+        if (Boots.baseBoot == true)
+        {
+            if (Boots.baseBPower >= 10)
+            {
+                //If button is pressed allow sprint
+                runControl.action.performed += context =>
+                {
+                    //Debug.Log("Sprinting");
+                    hazardCheck.runBoost = true;
+
+                };
+                //If button is not pressed don't allow sprint
+                runControl.action.canceled += context =>
+                {
+                    //Debug.Log("Walking");
+                    hazardCheck.runBoost = false;
+
+                };
+
+                if (hazardCheck.runBoost == true)
+                {
+                    baseBootDamage = StartCoroutine(hazardCheck.BaseBootDamage());
+                }
+                else
+                {
+                    if (baseBootDamage != null)
+                    {
+                        StopCoroutine(baseBootDamage);
+                    }
+                }
+            }
+        }
+    }
+
     //Jump
     public void jump()
     {
@@ -180,15 +225,18 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //Checks if base boots are active to give speed boost
-            if (Boots.baseBoot == true && hazardCheck.runBoost == true)
+            //Checks if base boots are active pressing run and has power
+            if (Boots.baseBoot == true && hazardCheck.runBoost == true && Boots.baseBPower >= 9)
             {
+                //Gives speed boost
                 currentSpeed = runSpeed;
             }
             else
             {
+                //No speed boost
                 currentSpeed = playerSpeed;
             }
+            
         }
     }
     

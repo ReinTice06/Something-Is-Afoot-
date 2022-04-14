@@ -1,30 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class HazardCheck : MonoBehaviour
 {
     Coroutine baseBootDamage;
     Coroutine fireBootDamage;
     Coroutine waterBootDamage;
-    [SerializeField]
-    private InputActionReference runControl;
+    
 
     public bool runBoost = false;
 
     Boots bootScript;
 
 
-    private void OnEnable()
-    {
-        runControl.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        runControl.action.Disable();
-    }
+    
 
     public void OnTriggerEnter(Collider other)
     {
@@ -136,51 +126,29 @@ public class HazardCheck : MonoBehaviour
     //If base boots are worn reduce power then stops speed boost
     public void baseBCheck()
     {
-        //If base boots are worn start reducing power and allow run
-        if(Boots.baseBoot == true)
+        if(Boots.baseBPower <= 10)
         {
-            
-            //Start losing power on base boots
-            baseBootDamage = StartCoroutine(BaseBootDamage());
-            runBoost = true;
-        }
-        //If base boots are not worn stop reducing power and dont allow run
-        else
-        {
-            if (baseBootDamage != null)
-            {
-                //Stop losing power and reduce speed to walking speed
-                StopCoroutine(baseBootDamage);
-                runBoost = false;
-            }
-        }
-        //Stop reducing power if power is <= 10
-        if (Boots.baseBPower <= 10)
-        {
-            if (baseBootDamage != null)
-            {
-                //Stop losing power and reduce speed to walking speed
-                StopCoroutine(baseBootDamage);
-                runBoost = false;
-            }
+            StopCoroutine(BaseBootDamage());
         }
     }
 
     //Coroutine for base boot damage every 2 seconds
-    IEnumerator BaseBootDamage()
+    public IEnumerator BaseBootDamage()
     {
         while (true)
         {
-            if (Boots.baseBPower > 0)
+            if (Boots.baseBPower >= 10)
             {
-                //Reduces fire boots power by XX
+                //Reduces base boots power by XX
                 Boots.baseBPower -= 2;
-                //Updates power bar with new fire power #
+                //Updates power bar with new base power #
                 GetComponent<Boots>().powerBar.SetPower(Boots.baseBPower);
+                Debug.Log("Set Power");
                 yield return new WaitForSeconds(2);
             }
+            yield return null;
         }
-
+        
 
     }
 
