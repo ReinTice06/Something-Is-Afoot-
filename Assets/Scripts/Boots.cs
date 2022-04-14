@@ -227,6 +227,14 @@ public class Boots : MonoBehaviour
                 powerBar.SetPower(Boots.fireBPower);
             }
         }
+        if (baseBoot == true)
+        {
+            if (baseBPower <= maxPower)
+            {
+                baseBPower += 5;
+                powerBar.SetPower(Boots.baseBPower);
+            }
+        }
     }
 
     //Set power loss

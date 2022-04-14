@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public bool playerDied = false;
     private bool isCrouched = false;
     public bool crouching = false;
+    public bool sprintCoIsRunning = false;
 
     //Floats
     public float currentSpeed;
@@ -168,11 +169,19 @@ public class Player : MonoBehaviour
         {
             if (Boots.baseBPower >= 10)
             {
+
                 //If button is pressed allow sprint
                 runControl.action.performed += context =>
                 {
                     //Debug.Log("Sprinting");
                     hazardCheck.runBoost = true;
+                    //Coroutine damage while running
+                    if (sprintCoIsRunning == false)
+                    {
+                        baseBootDamage = StartCoroutine(hazardCheck.BaseBootDamage());
+                        sprintCoIsRunning = true;
+                    }
+
 
                 };
                 //If button is not pressed don't allow sprint
@@ -180,20 +189,17 @@ public class Player : MonoBehaviour
                 {
                     //Debug.Log("Walking");
                     hazardCheck.runBoost = false;
-
+                    if (sprintCoIsRunning == true)
+                    {
+                        //Stop coroutine damage 
+                        if (baseBootDamage != null)
+                        {
+                            StopCoroutine(baseBootDamage);
+                        }
+                        sprintCoIsRunning = false;
+                    }
                 };
 
-                if (hazardCheck.runBoost == true)
-                {
-                    baseBootDamage = StartCoroutine(hazardCheck.BaseBootDamage());
-                }
-                else
-                {
-                    if (baseBootDamage != null)
-                    {
-                        StopCoroutine(baseBootDamage);
-                    }
-                }
             }
         }
     }
@@ -226,7 +232,7 @@ public class Player : MonoBehaviour
         else
         {
             //Checks if base boots are active pressing run and has power
-            if (Boots.baseBoot == true && hazardCheck.runBoost == true && Boots.baseBPower >= 9)
+            if (Boots.baseBoot == true && hazardCheck.runBoost == true && Boots.baseBPower >= 10)
             {
                 //Gives speed boost
                 currentSpeed = runSpeed;
@@ -302,5 +308,6 @@ public class Player : MonoBehaviour
     public void SetSpawnPoint (Vector3 newPosition)
     {
         respawnPoint = newPosition;
-    }    
+    }
+
 }

@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 1;
     public Transform Target, Player;
     float mouseX, mouseY;
+    public GameObject checkPoints;
 
     
 
@@ -49,6 +50,7 @@ public class CameraController : MonoBehaviour
         camControl();
         //MouseWheel Zoom
         zoom();
+        ViewObstructed();
     }
 
     public void camControl()
@@ -89,15 +91,13 @@ public class CameraController : MonoBehaviour
     {
         RaycastHit hit;
 
-        //Helps to make sure the walls reappear
-        //Doesn't currently work
-        //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 
         if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 7.5f))
         {
             
             //Makes sure the player isnt obstructing the camera
-            if (hit.collider.name != "Player")
+            if (hit.collider.tag == "Wall")
             {
                 Obstruction = hit.transform;
 

@@ -139,16 +139,16 @@ public class HazardCheck : MonoBehaviour
         {
             if (Boots.baseBPower >= 10)
             {
+                
                 //Reduces base boots power by XX
                 Boots.baseBPower -= 2;
                 //Updates power bar with new base power #
                 GetComponent<Boots>().powerBar.SetPower(Boots.baseBPower);
-                Debug.Log("Set Power");
                 yield return new WaitForSeconds(2);
+                Debug.Log("reduced power and waited");
             }
             yield return null;
         }
-        
 
     }
 
