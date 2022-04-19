@@ -16010,7 +16010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414570502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.922699, y: 0.12, z: -3.71562}
+  m_LocalPosition: {x: 1.922699, y: 51.4, z: -3.71562}
   m_LocalScale: {x: 25, y: 0.5, z: 60}
   m_Children: []
   m_Father: {fileID: 1691841877}
@@ -22034,6 +22034,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4486581302305308561, guid: d0b570787a67be54e9a6be1e3f504438, type: 3}
   m_PrefabInstance: {fileID: 676150611}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685589020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685589021}
+  - component: {fileID: 685589022}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685589021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685589020}
+  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: 6.03, z: -1.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 777179821}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &685589022
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685589020}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 2
+  m_Range: 3.75
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.02
+    m_NormalBias: 0.1
+    m_NearPlane: 0.1
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &688492704 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 03cce0573371edd42a2d6e3f70f01b4d, type: 3}
@@ -24284,6 +24377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Switch1: {fileID: 1975351664}
   Switch2: {fileID: 1090967768}
+  light: {fileID: 685589022}
 --- !u!4 &777179821
 Transform:
   m_ObjectHideFlags: 0
@@ -24297,6 +24391,7 @@ Transform:
   m_Children:
   - {fileID: 1110133943}
   - {fileID: 113944401}
+  - {fileID: 685589021}
   m_Father: {fileID: 402638476}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41011,7 +41106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542957310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.338839, y: 18.495028, z: -12.163092}
+  m_LocalPosition: {x: 9.338839, y: 69.775024, z: -12.163092}
   m_LocalScale: {x: 65, y: 0.5, z: 70}
   m_Children: []
   m_Father: {fileID: 1616985137}
@@ -43599,6 +43694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Switch1: {fileID: 1975351664}
   Switch2: {fileID: 1090967768}
+  light: {fileID: 0}
 --- !u!4 &1629305407
 Transform:
   m_ObjectHideFlags: 0
@@ -58513,6 +58609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Switch1: {fileID: 1975351664}
   Switch2: {fileID: 1090967768}
+  light: {fileID: 0}
 --- !u!4 &2133811838
 Transform:
   m_ObjectHideFlags: 0
