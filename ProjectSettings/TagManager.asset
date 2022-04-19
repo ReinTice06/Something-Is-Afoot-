@@ -25,6 +25,8 @@ TagManager:
   - PistonCollider
   - PistonCollider2
   - KillPots
+  - ElevatorStart
+  - ElevatorEnd
   layers:
   - Default
   - TransparentFX
