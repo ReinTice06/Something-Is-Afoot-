@@ -18931,6 +18931,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7304112759247742859, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 1485165107}
+    - target: {fileID: 7304112759247742859, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1187789546}
     - target: {fileID: 7304112759948852964, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: powerBar
       value: 
@@ -18959,6 +18967,10 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 574060981}
+    - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+      propertyPath: runControl
+      value: 
+      objectReference: {fileID: 647280208532706559, guid: 6832c3a104830aa45b644b966bdd44c1, type: 3}
     - target: {fileID: 7304112760317056888, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: crouchSpeed
       value: 2
@@ -18993,7 +19005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7609959715735860088, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
@@ -44667,6 +44679,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184972485}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1187789546 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7304112759247742853, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
+  m_PrefabInstance: {fileID: 549303797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1188127337
 GameObject:
   m_ObjectHideFlags: 0
@@ -50832,7 +50849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7609959715735860088, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f96d2da845c69844904472a78ec87da, type: 3}
