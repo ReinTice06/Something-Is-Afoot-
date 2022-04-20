@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    public Renderer theRend;
+    public Renderer Bulb1;
+    public Renderer Bulb2;
     public Material switchOn;
     public Material switchOff;
-
     public bool isOn = false;
-
-    private void Start()
-    {
-        theRend.material = switchOff;
-    }
-
+    
+    //On trigger enter turn on the switch
     private void OnTriggerEnter(Collider other)
     {
-        isOn = true;
-        theRend.material = switchOn;
+        isOn = true;        
     }
 }
