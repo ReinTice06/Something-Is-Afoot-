@@ -17,8 +17,8 @@ public class Elevator : MonoBehaviour
     public bool movingDown = false;
     public bool movingUp = false;
 
-    public bool startMovingUp = false;
-    public bool startMovingDown = false;
+    public bool atBottom = false;
+    public bool atTop = false;
 
     public float timeStart;
     //public bool isDown = false;
@@ -27,10 +27,9 @@ public class Elevator : MonoBehaviour
     public float uMax = 1;
     public float easingMod = 2;
 
-
     private void Start()
     {
-        //startMovingDown = true;
+        atTop = true;
         //startMoving = false;
 
         //movingDown = true;
@@ -40,31 +39,33 @@ public class Elevator : MonoBehaviour
 
     void Update()
     {
-        if (playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside == true)
+        if (playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside == true && atTop == true)
         {
             playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside = false;
+            atTop = false;
+            //playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside = false;
             //startMoving = true;
             //startMoving = false;
 
             movingDown = true;
             timeStart = Time.time;
-            //startMovingDown = false;
         }
 
-        if (startMovingUp)
+        if (playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside == true && atBottom == true)
         {
+            playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside = false;
+            atBottom = false;
             //startMoving = true;
             //startMoving = false;
 
             movingUp = true;
             timeStart = Time.time;
-            startMovingUp = false;
         }
 
         //This should check to see if a button was pressed so that it will either go down or back up again
         //Or maybe it should just go down and the player won;t be allowed to go back up?
 
-        //if (startMovingDown)
+        //if (atTop)
         //{
         //    movingUp = false;
         //    startMoving = true;
@@ -73,7 +74,7 @@ public class Elevator : MonoBehaviour
         //    timeStart = Time.time;
         //}
 
-        //if (startMovingUp)
+        //if (atBottom)
         //{
         //    movingDown = false;
         //    movingUp = true;
@@ -89,6 +90,7 @@ public class Elevator : MonoBehaviour
             {
                 u = 1;
                 movingDown = false;
+                atBottom = true;
             }
 
             u = EaseInOut(u);
@@ -107,6 +109,7 @@ public class Elevator : MonoBehaviour
             {
                 u = 1;
                 movingUp = false;
+                atTop = true;
             }
 
             u = EaseInOut(u);
@@ -137,11 +140,11 @@ public class Elevator : MonoBehaviour
     {
         if (other.CompareTag("ElevatorEnd"))
         {
-            startMovingUp = true;
+            atBottom = true;
         }
         else if (other.CompareTag("ElevatorStart"))
         {
-            startMovingDown = true;
+            atTop = true;
         }
     }
 }

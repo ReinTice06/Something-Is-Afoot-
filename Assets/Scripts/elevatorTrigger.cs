@@ -19,10 +19,18 @@ public class elevatorTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerInside = true;
-            elevatorReachedBottom = true;
+            
+            if (other.gameObject.CompareTag("ElevatorEnd"))
+            {
+                elevatorReachedBottom = true;
+            }
+
+            if (other.gameObject.CompareTag("ElevatorEnd"))
+            {
+                elevatorReachedBottom = false;
+            }
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
