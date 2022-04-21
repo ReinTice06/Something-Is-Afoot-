@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    public GameObject playerCollisionChecker;
+    public Animator animatorTop;
+    public Animator animatorBottom;
 
+    public GameObject playerCollisionChecker;
 
     public Transform startPos, endPos;
     public float timeDuration = 1f;
@@ -61,6 +63,9 @@ public class Elevator : MonoBehaviour
             movingUp = true;
             timeStart = Time.time;
         }
+
+        OpenDoorAtBottom();
+        OpenDoorAtTop();
 
         //This should check to see if a button was pressed so that it will either go down or back up again
         //Or maybe it should just go down and the player won;t be allowed to go back up?
@@ -145,6 +150,22 @@ public class Elevator : MonoBehaviour
         else if (other.CompareTag("ElevatorStart"))
         {
             atTop = true;
+        }
+    }
+
+    private void OpenDoorAtBottom()
+    {
+        if (atBottom)
+        {
+            animatorBottom.SetBool("BottomDoorOpen", true);
+        }
+    }
+
+    private void OpenDoorAtTop()
+    {
+        if (atTop)
+        {
+            animatorTop.SetBool("OpenDoor", true);
         }
     }
 }

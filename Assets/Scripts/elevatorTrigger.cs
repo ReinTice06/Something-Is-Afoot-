@@ -18,6 +18,7 @@ public class elevatorTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
             playerInside = true;
             
             if (other.gameObject.CompareTag("ElevatorEnd"))
