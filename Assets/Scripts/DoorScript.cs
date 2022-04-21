@@ -6,22 +6,27 @@ public class DoorScript : MonoBehaviour
 {
     public Switch Switch1;
     public Switch Switch2;
-    public Light light1;
-    public Light light2;
-    public Color Off;
-    public Color On;
+    public Renderer DoorLight1;
+    public Renderer DoorLight2;
+    //public Light light1;
+    //public Light light2;
+    //public Color Off;
+    //public Color On;
 
     private void Start()
     {
         //Sets light starting color to Off color
-        light1.color = Off;
-        light2.color = Off;
+        //light1.color = Off;
+        //light2.color = Off;
         //Switch 1 bulbs off
         Switch1.Bulb1.material = Switch1.switchOff;
         Switch1.Bulb2.material = Switch1.switchOff;
         //Switch 2 bulbs off
         Switch2.Bulb1.material = Switch2.switchOff;
         Switch2.Bulb2.material = Switch2.switchOff;
+        //Switch door light 1 off
+        DoorLight1.material = Switch1.switchOff;
+        DoorLight2.material = Switch1.switchOff;
     }
     private void Update()
     {
@@ -43,19 +48,24 @@ public class DoorScript : MonoBehaviour
         if(Switch1.isOn)
         {
             //Turns on light 1
-            light1.color = On;
+            //light1.color = On;
             //Turns on bulb 1 for both switches
             Switch1.Bulb1.material = Switch1.switchOn;
             Switch2.Bulb1.material = Switch2.switchOn;
+            //Turn on door light one
+            DoorLight1.material = Switch1.switchOn;
         }
         //Turns on light two if switch is activated
         if (Switch2.isOn)
         {
             //Turns on light 1
-            light2.color = On;
+            //light2.color = On;
             //Turns on bulb 2 for both switches
             Switch1.Bulb2.material = Switch1.switchOn;
             Switch2.Bulb2.material = Switch2.switchOn;
+            //Turn on door light 2
+            DoorLight2.material = Switch1.switchOn;
+
         }
     }
 }
