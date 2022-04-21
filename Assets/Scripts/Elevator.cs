@@ -38,7 +38,6 @@ public class Elevator : MonoBehaviour
         //timeStart = Time.time;
     }
 
-
     void Update()
     {
         if (playerCollisionChecker.GetComponent<elevatorTrigger>().playerInside == true && atTop == true)
