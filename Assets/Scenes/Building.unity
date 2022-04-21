@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5861632918387373968, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861632918387373968, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -47.61
+      objectReference: {fileID: 0}
     - target: {fileID: 5861632919316095321, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
       propertyPath: m_Name
       value: Foundary Room
@@ -177,6 +185,18 @@ PrefabInstance:
     - target: {fileID: 5861632919316095322, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861632919338712964, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 124.70745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861632919338712964, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5861632919338712964, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25c18d2e64703bf4a954a47e33425ab7, type: 3}
