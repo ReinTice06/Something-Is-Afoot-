@@ -11,13 +11,10 @@ public class LavaFloor : MonoBehaviour
     public GameObject point3;
     public GameObject point4;
 
-
     private Vector3 pos1;
     private Vector3 pos2;
     private Vector3 pos3;
     private Vector3 pos4;
-
-
 
 
 
@@ -28,6 +25,7 @@ public class LavaFloor : MonoBehaviour
         pos2 = point2.transform.position;
         pos3 = point3.transform.position;
         pos4 = point4.transform.position;
+
     }
 
     // Update is called once per frame
@@ -38,23 +36,13 @@ public class LavaFloor : MonoBehaviour
 
     public void SwitchCheck()
     {
-        foreach (Switch sw in switches)
-        {
-            if (sw.isOn)
-            {
-                MoveLava();
-                Debug.Log("increased lava height");
-
-            }
-        }
-    }
-
-    public void MoveLava()
-    {
-        if(transform.position == pos1)
+        if (switches[0].isOn)
         {
             transform.Translate(0, 10, 0);
         }
+        
+        
     }
+    
 
 }
