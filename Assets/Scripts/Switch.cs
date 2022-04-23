@@ -15,4 +15,6 @@ public class Switch : MonoBehaviour
     {
         isOn = true;        
     }
+
 }
+
