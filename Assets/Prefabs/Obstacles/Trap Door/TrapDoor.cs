@@ -19,6 +19,7 @@ public class TrapDoor : MonoBehaviour
 
     public float timeStart;
     public bool isDown = false;
+    public bool stayOpen = false;
 
     public float uMin = 0;
     public float uMax = 1;
@@ -27,25 +28,40 @@ public class TrapDoor : MonoBehaviour
 
     void Update()
     {
+        //Opens the bridge, when a bucket enters
         if (CollisionChecker.GetComponent<TrapDoorCollision>().lavaEntered)
         {
-            CollisionChecker.GetComponent<TrapDoorCollision>().lavaEntered = false;
-            startMoving = true;
-            startMoving = false;
+            if (stayOpen == false)
+            {
+                CollisionChecker.GetComponent<TrapDoorCollision>().lavaEntered = false;
+                startMoving = true;
+                startMoving = false;
 
-            moving = true;
-            timeStart = Time.time;
+                moving = true;
+                timeStart = Time.time;
+            }
+            stayOpen = true;
         }
 
-        if (CollisionChecker.GetComponent<TrapDoorCollision>().lavaExited)
-        {
-            CollisionChecker.GetComponent<TrapDoorCollision>().lavaExited = false;
-            startMoving = true;
-            startMoving = false;
+        //Close door, when no bucket is present, and one leaves
+        //if (CollisionChecker.GetComponent<TrapDoorCollision>().lavaExited)
+        //{
+        //    if (CollisionChecker.GetComponent<TrapDoorCollision>().lavaInside == false)
+        //    {
+        //        //CollisionChecker.GetComponent<TrapDoorCollision>().lavaInside = false;
+        //        //CollisionChecker.GetComponent<TrapDoorCollision>().lavaExited = false;
+        //        //startMoving = true;
+        //        //startMoving = false;
 
-            movingBack = true;
-            timeStart = Time.time;
-        }
+        //        movingBack = true;
+        //        timeStart = Time.time;
+        //    }
+        //}
+
+        //if (CollisionChecker.GetComponent<TrapDoorCollision>().lavaInside)
+        //{
+        //    movingBack = true;
+        //}
 
         if (moving)
         {
@@ -65,23 +81,23 @@ public class TrapDoor : MonoBehaviour
             transform.rotation = r01;
         }
 
-        if (movingBack)
-        {
-            float u = (Time.time - timeStart) / timeDuration;
-            if (u >= 1)
-            {
-                u = 1;
-                movingBack = false;
-            }
+        //else if (movingBack)
+        //{
+        //    float u = (Time.time - timeStart) / timeDuration;
+        //    if (u >= 1)
+        //    {
+        //        u = 1;
+        //        movingBack = false;
+        //    }
 
-            u = EaseInOut(u);
+        //    u = EaseInOut(u);
 
-            p01 = (1 - u) * c1.position + u * c0.position;
-            r01 = Quaternion.Slerp(c1.rotation, c0.rotation, u);
+        //    p01 = (1 - u) * c1.position + u * c0.position;
+        //    r01 = Quaternion.Slerp(c1.rotation, c0.rotation, u);
 
-            transform.position = p01;
-            transform.rotation = r01;
-        }
+        //    transform.position = p01;
+        //    transform.rotation = r01;
+        //}
     }
 
     private float EaseInOut(float u)
