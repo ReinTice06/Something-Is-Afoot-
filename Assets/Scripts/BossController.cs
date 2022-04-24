@@ -35,8 +35,8 @@ public class BossController : MonoBehaviour
                 float time = Time.deltaTime * speed;
 
 
-                //Rotates towards target
                 animator.SetTrigger("MoveArm");
+                //Rotates towards target
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Target.rotation, speed);
             }
         }
