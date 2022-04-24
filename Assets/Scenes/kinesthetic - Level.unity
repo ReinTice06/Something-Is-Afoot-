@@ -8550,17 +8550,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655648723420948409, guid: de905324fc82d174e80df3cc4feb6e1d, type: 3}
       propertyPath: m_text
-      value: 'Press ''Space Bar'' to jump
+      value: '''WASD'' to move
 
 
-        Hold ''Ctrl'' to crouch
+        ''Space Bar'' to jump
 
 
-        Scroll
+        ''Ctrl''
+        to crouch
+
+
         ''Mouse Wheel'' to zoom camera
 
 
-        Press ''ESC'' to pause
+        Press ''ESC''
+        to pause
 
 '
       objectReference: {fileID: 0}
