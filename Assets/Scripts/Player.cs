@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public GameObject thePlayer;
     public Text CollectiblesText;
     public Text UiRoom;
+    public CameraShake cameraShake;
 
     //Bools
     private bool isGrounded;    
@@ -176,6 +177,10 @@ public class Player : MonoBehaviour
                 {
                     //Debug.Log("Sprinting");
                     hazardCheck.runBoost = true;
+
+                    //Shakes the camera when starting to sprint
+                    //StartCoroutine(cameraShake.Shake(.15f, .1f));
+
                     //Coroutine damage while running
                     if (sprintCoIsRunning == false)
                     {
