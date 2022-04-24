@@ -247,19 +247,19 @@ public class Player : MonoBehaviour
         }
     }
     
-    //When Player collides with Collectible it dissapears and shows up on the UI
     private void OnTriggerEnter(Collider other)
     {
+        //When Player collides with Collectible it dissapears and shows up on the UI
         if (other.gameObject.tag == "Collectible")
         {
             collectedCollectibles++;
             other.gameObject.SetActive(false);
             CollectiblesText.text = "Collectibles: " + collectedCollectibles;
         }
-
+        //Dsiplays name of gameobject on UI on trigger enter
         if(other.gameObject.tag == "UIRoom")
         {
-            UiRoom.text = gameObject.name;
+            UiRoom.text = other.name;
         }
     }
 
