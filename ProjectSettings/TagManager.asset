@@ -27,6 +27,7 @@ TagManager:
   - KillPots
   - ElevatorStart
   - ElevatorEnd
+  - UIRoom
   layers:
   - Default
   - TransparentFX

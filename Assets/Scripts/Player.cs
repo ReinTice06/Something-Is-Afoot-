@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject playerBody;
     public GameObject thePlayer;
     public Text CollectiblesText;
+    public Text UiRoom;
 
     //Bools
     private bool isGrounded;    
@@ -256,28 +257,14 @@ public class Player : MonoBehaviour
             CollectiblesText.text = "Collectibles: " + collectedCollectibles;
         }
 
-        //if (other.gameObject.tag == "TextPopup")
-        //{
-        //    GameObject text = GameObject.FindGameObjectWithTag("TextPopup");
-        //    text.GetComponent<MeshRenderer>().enabled = true;
-        //    //Debug.Log("Did I get in here?");
-        //}
+        if(other.gameObject.tag == "UIRoom")
+        {
+            UiRoom.text = gameObject.name;
+        }
     }
 
-    //Gets rid of the text once you leave the sphere
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag == "TextPopup")
-    //    {
-    //        GameObject text = GameObject.FindGameObjectWithTag("TextPopup");
-    //        text.GetComponent<MeshRenderer>().enabled = false;
-    //    }
-
-    //}
-
+    
     //Checks Boot Power Level
-
-
     public void checkForPower()
     {
         //Respawns the player if current boot health is at 0
