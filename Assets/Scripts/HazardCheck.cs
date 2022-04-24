@@ -159,11 +159,12 @@ public class HazardCheck : MonoBehaviour
         {
             if (Boots.waterBPower > 0)
             {
+                yield return new WaitForSeconds(1);
                 //Reduces water power by XX
                 Boots.waterBPower -= 5;
                 //Updates power bar with new water power #
                 GetComponent<Boots>().powerBar.SetPower(Boots.waterBPower);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
             }
             
         }

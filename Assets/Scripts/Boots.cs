@@ -147,10 +147,6 @@ public class Boots : MonoBehaviour
         LbootRend.material = fireBootMat;
         RbootRend.material = fireBootMat;
 
-
-        //Testing to change power color with boots
-        //powerBarColor.GetComponent<Image>().color = new Color32(255, 255, 225, 100);
-
         //Turns off other boots
         baseBoot = false;
         waterBoot = false;
