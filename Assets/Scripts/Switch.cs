@@ -9,7 +9,7 @@ public class Switch : MonoBehaviour
     public Material switchOn;
     public Material switchOff;
     public bool isOn = false;
-    
+
     //On trigger enter turn on the switch
     private void OnTriggerEnter(Collider other)
     {
