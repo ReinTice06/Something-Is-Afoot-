@@ -6,7 +6,7 @@ public class OpenForm : MonoBehaviour
 {
     public void openForm()
     {
-        Application.OpenURL("https://forms.gle/eMW4L1Q6zvfryJxG9");
+        Application.OpenURL("https://forms.gle/r2zxjQMsyjg8b5Ny5");
     }
 
     public void quitGame()
