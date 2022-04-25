@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
             //Apppend letter to the end of the string
             dialogueText.text += letter;
             //Wait time after each letter
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
     }
 
