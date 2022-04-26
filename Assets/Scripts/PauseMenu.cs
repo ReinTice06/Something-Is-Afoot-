@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject OptionsMenuUI;
     public CameraController cameraScript;
+    public Animator animator;
+    public GameObject theplayer;
 
     // Update is called once per frame
     void Update()
@@ -95,5 +97,12 @@ public class PauseMenu : MonoBehaviour
         OptionsMenuUI.SetActive(false);
         //Turns on pause menu ui
         PauseMenuUI.SetActive(true);
+    }
+    //Respawn Function
+    public void respawn()
+    {
+        Resume();
+        theplayer.GetComponent<Player>().playerDied = true;
+        theplayer.GetComponent<Player>().Respawn();
     }
 }

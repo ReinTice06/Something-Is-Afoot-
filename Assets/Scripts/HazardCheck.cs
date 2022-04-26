@@ -7,14 +7,18 @@ public class HazardCheck : MonoBehaviour
     Coroutine baseBootDamage;
     Coroutine fireBootDamage;
     Coroutine waterBootDamage;
-    
+
+    public GameObject thePlayer;
 
     public bool runBoost = false;
 
     Boots bootScript;
 
+    private void Update()
+    {
+        checkForPower();
+    }
 
-    
 
     public void OnTriggerEnter(Collider other)
     {
@@ -132,6 +136,29 @@ public class HazardCheck : MonoBehaviour
         }
     }
 
+
+    //Checks Boot Power Level
+    public void checkForPower()
+    {
+        //Respawns the player if current boot health is at 0
+        if (Boots.fireBPower <= 0)
+        {
+            Boots.currentPower = 0;
+            if (fireBootDamage != null)
+            {
+                StopCoroutine(fireBootDamage);
+            }
+        }
+        if (Boots.waterBPower <= 0)
+        {
+            Boots.currentPower = 0;
+            if (waterBootDamage != null)
+            {
+                StopCoroutine(waterBootDamage);
+            }
+        }
+        
+    }
     //Coroutine for base boot damage every 2 seconds
     public IEnumerator BaseBootDamage()
     {
@@ -139,7 +166,7 @@ public class HazardCheck : MonoBehaviour
         {
             if (Boots.baseBPower >= 10)
             {
-                
+
                 //Reduces base boots power by XX
                 Boots.baseBPower -= 2;
                 //Updates power bar with new base power #
@@ -159,12 +186,15 @@ public class HazardCheck : MonoBehaviour
         {
             if (Boots.waterBPower > 0)
             {
-                yield return new WaitForSeconds(1);
-                //Reduces water power by XX
-                Boots.waterBPower -= 5;
-                //Updates power bar with new water power #
-                GetComponent<Boots>().powerBar.SetPower(Boots.waterBPower);
-                yield return new WaitForSeconds(1);
+                if (thePlayer.GetComponent<Player>().playerDied == false)
+                {
+                    yield return new WaitForSeconds(1);
+                    //Reduces water power by XX
+                    Boots.waterBPower -= 5;
+                    //Updates power bar with new water power #
+                    GetComponent<Boots>().powerBar.SetPower(Boots.waterBPower);
+                    yield return new WaitForSeconds(1);
+                }
             }
             
         }
@@ -176,11 +206,15 @@ public class HazardCheck : MonoBehaviour
         {
             if (Boots.fireBPower > 0)
             {
-                //Reduces fire boots power by XX
-                Boots.fireBPower -= 10;
-                //Updates power bar with new fire power #
-                GetComponent<Boots>().powerBar.SetPower(Boots.fireBPower);
-                yield return new WaitForSeconds(2);
+                if (thePlayer.GetComponent<Player>().playerDied == false)
+                {
+                    yield return new WaitForSeconds(1);
+                    //Reduces fire boots power by XX
+                    Boots.fireBPower -= 10;
+                    //Updates power bar with new fire power #
+                    GetComponent<Boots>().powerBar.SetPower(Boots.fireBPower);
+                    yield return new WaitForSeconds(1);
+                }
             }
         }
         

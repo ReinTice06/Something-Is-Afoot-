@@ -113,10 +113,11 @@ public class Player : MonoBehaviour
 
         speedCheck();
         baseBoost();
+        checkForPower();
     }
     private void LateUpdate()
     {
-        checkForPower();
+        
     }
 
     //Player Movement
@@ -277,7 +278,7 @@ public class Player : MonoBehaviour
         //Respawns the player if current boot health is at 0
         if (Boots.currentPower <= 0)
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             playerDied = true;
             //Triggers Death Animation which respawns player
             crouchAnimator.animator.SetTrigger("Death");
