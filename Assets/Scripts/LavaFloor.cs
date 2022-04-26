@@ -5,7 +5,7 @@ using UnityEngine;
 public class LavaFloor : MonoBehaviour
 {
     //Array of switches assigned in inspector
-    public Lever[] switches;
+    public Switch[] switches;
     //Points for object to move to
     public GameObject point1;
     public GameObject point2;

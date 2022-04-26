@@ -36,6 +36,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: MoveArm
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: BossOn
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2634430857745726090}
   m_Solo: 0
@@ -137,6 +140,12 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: MoveArm
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: BossOn
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
