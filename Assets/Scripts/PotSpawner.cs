@@ -30,17 +30,30 @@ public class PotSpawner : MonoBehaviour
         {
             if (canSpawn)
             {
-                InvokeRepeating("SpawnObject", startDelay, spawnRate);
-                canSpawn = false;
+                //InvokeRepeating("SpawnObject", startDelay, spawnRate);
+                RepeatSpawning();
+                //canSpawn = false;
             }
         }
     }
 
+    void RepeatSpawning()
+    {
+        InvokeRepeating("SpawnObject", startDelay, spawnRate);
+        canSpawn = false;
+    }
+
+
     void SpawnObject()
     {
         Instantiate(spawnObjectPrefab, transform.position, transform.rotation);
+        
         //Instantiate(spawnObjectPrefab, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        //canSpawn = false;
     }
+
+
+
 
     //private void Start()
     //{
