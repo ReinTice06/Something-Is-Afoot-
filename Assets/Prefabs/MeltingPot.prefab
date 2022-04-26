@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 262321973742490580}
   m_Layer: 0
   m_Name: MeltingPot
-  m_TagString: Lava
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

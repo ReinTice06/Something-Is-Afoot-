@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 262321972922003235}
   - component: {fileID: 262321972922003236}
   - component: {fileID: 262321972922003237}
-  - component: {fileID: 262321972922003238}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Lava
@@ -184,22 +183,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.17, y: 0.01, z: 0.18}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!64 &262321972922003238
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262321972922003224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: b451a052397f03c4f8a04d915d1c0492, type: 3}
+  m_Size: {x: 0.16999999, y: 0.011662663, z: 0.17999999}
+  m_Center: {x: 0, y: 0.0008313404, z: 0}
 --- !u!1 &262321973146545817
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,11 +321,11 @@ GameObject:
   - component: {fileID: 262321973742490576}
   - component: {fileID: 262321973742490577}
   - component: {fileID: 262321973742490578}
-  - component: {fileID: 262321973742490579}
   - component: {fileID: 6516912955617076881}
+  - component: {fileID: 392508819438279270}
   m_Layer: 0
   m_Name: MeltingPot Repeating
-  m_TagString: Lava
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,20 +399,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &262321973742490579
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262321973742490581}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.9571292
-  m_Direction: 1
-  m_Center: {x: 0.0000000663766, y: -0.4350489, z: -0.0000000995649}
 --- !u!114 &6516912955617076881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,3 +412,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!65 &392508819438279270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262321973742490581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.97, y: 2, z: 0.97}
+  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940698}

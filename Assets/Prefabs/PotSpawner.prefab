@@ -110,5 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjectPrefab: {fileID: 262321973742490581, guid: de22a4836eeaad345808014bf98b8e29, type: 3}
   pos: {fileID: 3147868581444881329}
+  Switch1: {fileID: 0}
+  Switch2: {fileID: 0}
   startDelay: 0
   spawnRate: 15
+  canSpawn: 1

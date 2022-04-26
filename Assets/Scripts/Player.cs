@@ -175,19 +175,21 @@ public class Player : MonoBehaviour
                 //If button is pressed allow sprint
                 runControl.action.performed += context =>
                 {
-                    //Debug.Log("Sprinting");
-                    hazardCheck.runBoost = true;
-
-                    //Shakes the camera when starting to sprint
-                    //StartCoroutine(cameraShake.Shake(.15f, .1f));
-
-                    //Coroutine damage while running
-                    if (sprintCoIsRunning == false)
+                    if (Boots.baseBoot == true)
                     {
-                        baseBootDamage = StartCoroutine(hazardCheck.BaseBootDamage());
-                        sprintCoIsRunning = true;
-                    }
+                        //Debug.Log("Sprinting");
+                        hazardCheck.runBoost = true;
 
+                        //Shakes the camera when starting to sprint
+                        //StartCoroutine(cameraShake.Shake(.15f, .1f));
+
+                        //Coroutine damage while running
+                        if (sprintCoIsRunning == false)
+                        {
+                            baseBootDamage = StartCoroutine(hazardCheck.BaseBootDamage());
+                            sprintCoIsRunning = true;
+                        }
+                    }
 
                 };
                 //If button is not pressed don't allow sprint
