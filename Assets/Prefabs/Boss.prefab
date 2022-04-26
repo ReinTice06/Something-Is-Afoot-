@@ -783,6 +783,7 @@ GameObject:
   - component: {fileID: 1822325708619554453}
   - component: {fileID: 6513314023283200070}
   - component: {fileID: 6513314023283200071}
+  - component: {fileID: 2729950997533529211}
   m_Layer: 0
   m_Name: Upper_arm
   m_TagString: Untagged
@@ -839,6 +840,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossController: {fileID: 3697676915062292401}
+--- !u!114 &2729950997533529211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513314023283200069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc68d1def06371b4db26257a2a2157d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabList:
+  - {fileID: 6333152006173878964, guid: ad10cf8b14556ea48a8bdf188bc4720b, type: 3}
+  - {fileID: 1122758598212068890, guid: 5cbc13b3917f9ce438ece71eeac11b8d, type: 3}
 --- !u!1 &6652303625330593814
 GameObject:
   m_ObjectHideFlags: 0
