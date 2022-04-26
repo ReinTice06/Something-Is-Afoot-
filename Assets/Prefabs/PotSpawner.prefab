@@ -113,5 +113,5 @@ MonoBehaviour:
   Switch1: {fileID: 0}
   Switch2: {fileID: 0}
   startDelay: 0
-  spawnRate: 15
+  spawnRate: 5
   canSpawn: 1

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player;
     public GameObject Canvas;
+    public CollectibleCounter Counter;
 
 
     private void Awake()
@@ -20,7 +21,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(Canvas);
+        DontDestroyOnLoad(Counter);
+        DontDestroyOnLoad(Player);
         DontDestroyOnLoad(this.gameObject);
+        
     }
 
     // Update is called once per frame
