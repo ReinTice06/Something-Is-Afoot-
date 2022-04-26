@@ -277,6 +277,7 @@ public class Player : MonoBehaviour
         //Respawns the player if current boot health is at 0
         if (Boots.currentPower <= 0)
         {
+            StopAllCoroutines();
             playerDied = true;
             //Triggers Death Animation which respawns player
             crouchAnimator.animator.SetTrigger("Death");
