@@ -93,7 +93,7 @@ public class CameraController : MonoBehaviour
 
         //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 
-        if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 7.5f))
+        if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 20f))
         {
             
             //Makes sure the player isnt obstructing the camera
