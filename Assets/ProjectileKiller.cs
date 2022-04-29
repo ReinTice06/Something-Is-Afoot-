@@ -8,11 +8,11 @@ public class ProjectileKiller : MonoBehaviour
     {
         if(other.gameObject.tag == "Lava")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "Water")
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
