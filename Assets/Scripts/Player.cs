@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     public HazardCheck hazardCheck;
     public CharacterController controller;
     public animationController crouchAnimator;
+    public Animator jumpAnimator;
     private Transform cameraMainTransform;
     Coroutine deathAnim;
 
@@ -216,6 +217,7 @@ public class Player : MonoBehaviour
     //Jump
     public void jump()
     {
+        
         isGrounded = controller.isGrounded;
         if (isGrounded && playerVelocity.y < 0)
         {
@@ -224,7 +226,8 @@ public class Player : MonoBehaviour
 
         if (jumpControl.action.triggered && isGrounded)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            jumpAnimator.SetTrigger("Jump");
+            //playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
