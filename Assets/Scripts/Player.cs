@@ -226,8 +226,8 @@ public class Player : MonoBehaviour
 
         if (jumpControl.action.triggered && isGrounded)
         {
-            jumpAnimator.SetTrigger("Jump");
-            //playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            //jumpAnimator.SetTrigger("Jump");
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
