@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     //GameObjects
     public GameObject playerBody;
     public GameObject thePlayer;
+    public GameObject sprintDust;
     public Text CollectiblesText;
     public Text UiRoom;
     public CameraShake cameraShake;
@@ -82,7 +83,12 @@ public class Player : MonoBehaviour
         runControl.action.Enable();
     }
 
-
+    private void Awake()
+    {
+        //sprintDust = GameObject.Find("SprintDust");
+        //sprintDust = transform.Find("");
+        //sprintDust = GetChildWithName(GameObject sprintDust, string "SprintDust");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +121,7 @@ public class Player : MonoBehaviour
         speedCheck();
         baseBoost();
         checkForPower();
+        SprintDust();
     }
     private void LateUpdate()
     {
@@ -309,4 +316,15 @@ public class Player : MonoBehaviour
         respawnPoint = newPosition;
     }
 
+    private void SprintDust()
+    {
+        if (sprintCoIsRunning)
+        {
+            sprintDust.SetActive(true);
+        }
+        else
+        {
+            sprintDust.SetActive(false);
+        }
+    }
 }
