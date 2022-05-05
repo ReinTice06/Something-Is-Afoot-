@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public CameraShake cameraShake;
 
     //Bools
-    private bool isGrounded;    
+    public bool isGrounded;    
     private bool isRespawning;
     public bool playerDied = false;
     private bool isCrouched = false;
@@ -171,6 +171,36 @@ public class Player : MonoBehaviour
         
 
     }
+    //Jump
+    public void jump()
+    {
+        bool lunge = false;
+        isGrounded = controller.isGrounded;
+        if (isGrounded && playerVelocity.y < 0)
+        {
+            lunge = false;
+            playerVelocity.y = -gravityValue * Time.deltaTime;
+        }
+
+        if (jumpControl.action.triggered && isGrounded)
+        {
+            lunge = true;
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+        jumpControl.action.canceled += context =>
+        {
+            lunge = false;
+        };
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+        
+        while(lunge == true)
+        {
+            playerVelocity += transform.forward * 2;
+        }
+        
+    }
 
     //Run control for base boots
     public void baseBoost()
@@ -221,24 +251,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    //Jump
-    public void jump()
-    {
-        
-        isGrounded = controller.isGrounded;
-        if (isGrounded && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-
-        if (jumpControl.action.triggered && isGrounded)
-        {
-            //jumpAnimator.SetTrigger("Jump");
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-    }
 
     //Speed Check
     public void speedCheck()
