@@ -18,7 +18,8 @@ public class ConveyerBelt : MonoBehaviour
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("Player");
     }
 
     private void Start()
