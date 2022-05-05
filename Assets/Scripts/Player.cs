@@ -174,32 +174,32 @@ public class Player : MonoBehaviour
     //Jump
     public void jump()
     {
-        bool lunge = false;
         isGrounded = controller.isGrounded;
         if (isGrounded && playerVelocity.y < 0)
         {
-            lunge = false;
+            //Pushes player down to ensure isgrounded is always true when grounded
             playerVelocity.y = -gravityValue * Time.deltaTime;
         }
-
+        
         if (jumpControl.action.triggered && isGrounded)
         {
-            lunge = true;
+            //Start lunge coroutine
+            StartCoroutine(lunge());
+            //Jumps the player
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-        jumpControl.action.canceled += context =>
-        {
-            lunge = false;
-        };
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        
-        while(lunge == true)
-        {
-            playerVelocity += transform.forward * 2;
-        }
-        
+    }
+    //Lunge coroutine
+    IEnumerator lunge()
+    {
+        playerVelocity += transform.forward * 2;
+        yield return new WaitForSeconds(1.1f);
+        playerVelocity -= transform.forward * 2;
+
+        yield return null;
     }
 
     //Run control for base boots
