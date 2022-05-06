@@ -54,13 +54,13 @@ public class Player : MonoBehaviour
     public HazardCheck hazardCheck;
     public CharacterController controller;
     public animationController crouchAnimator;
-    public Animator jumpAnimator;
     private Transform cameraMainTransform;
     Coroutine deathAnim;
 
     //Vector 3
     private Vector3 playerVelocity;
     private Vector3 respawnPoint;
+    private Vector3 jumpDirection;
 
 
     Coroutine baseBootDamage;
@@ -195,9 +195,14 @@ public class Player : MonoBehaviour
     //Lunge coroutine
     IEnumerator lunge()
     {
-        playerVelocity += transform.forward * 2;
+        //Finds direction player is facing when jump is pressed
+        jumpDirection = (transform.forward);
+        //Lunges towards jump position
+        playerVelocity += jumpDirection * 2;
+        //Waits to land
         yield return new WaitForSeconds(1.1f);
-        playerVelocity -= transform.forward * 2;
+        //subtracts previous force
+        playerVelocity -= jumpDirection * 2;
 
         yield return null;
     }
