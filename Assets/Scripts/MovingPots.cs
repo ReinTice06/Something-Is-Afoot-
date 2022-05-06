@@ -6,6 +6,8 @@ public class MovingPots : MonoBehaviour
 {
     public int speed = 1;
 
+    //public GameObject Player;
+
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +20,18 @@ public class MovingPots : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.SetParent(transform);
+        }
     }
 
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.SetParent(null);
+        }
+    }
 }
