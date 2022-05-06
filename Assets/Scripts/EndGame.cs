@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
+    public CollectibleCounter collectible;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +15,16 @@ public class EndGame : MonoBehaviour
             //Enables cursor
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            //Loads game over scene
-            SceneManager.LoadScene(2);
+            //If collected all collectables show easter egg
+            if (collectible.allCollectables == true)
+            {
+                SceneManager.LoadScene(3);
+            }
+            //If not collected all collectables show game over
+            else
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 }

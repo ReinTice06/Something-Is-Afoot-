@@ -13,6 +13,7 @@ public class CollectibleCounter : MonoBehaviour
     public Image CollectiblesImage4;
     public Image CollectiblesImage5;
     public Image CollectiblesImage6;
+    public bool allCollectables = false;
 
 
 
@@ -42,6 +43,7 @@ public class CollectibleCounter : MonoBehaviour
         else if (Player.GetComponent<Player>().collectedCollectibles == 6)
         {
             TurnOnCollectible6();
+            allCollectables = true;
         }
     }
 
