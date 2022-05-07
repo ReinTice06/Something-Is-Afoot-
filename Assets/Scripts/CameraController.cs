@@ -15,7 +15,9 @@ public class CameraController : MonoBehaviour
     float mouseX, mouseY;
     public GameObject checkPoints;
     public float cameraObstructionDistance = 20f;
-    
+    private bool minDist = false;
+    private bool maxDist = false;
+
 
 
     //See through walls
@@ -51,6 +53,7 @@ public class CameraController : MonoBehaviour
         //MouseWheel Zoom
         zoom();
         ViewObstructed();
+        CameraZoomDistance();
     }
 
     public void camControl()
@@ -118,6 +121,39 @@ public class CameraController : MonoBehaviour
 
         }
 
+    }
+    private void CameraZoomDistance()
+    {
+        if(minDist == true)
+        {
+            transform.Translate(Vector3.back * 20 * Time.deltaTime);
+        }
+        if (maxDist == true)
+        {
+            transform.Translate(Vector3.forward * 20 * Time.deltaTime);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "MinZoom")
+        {
+            minDist = true;
+        }
+        if (other.gameObject.tag == "MaxZoom")
+        {
+            maxDist = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "MinZoom")
+        {
+            minDist = false;
+        }
+        if (other.gameObject.tag == "MaxZoom")
+        {
+            maxDist = true;
+        }
     }
 
     //Adjust sensitivity with slider in pause menu

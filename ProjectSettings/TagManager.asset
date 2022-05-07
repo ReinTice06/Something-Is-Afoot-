@@ -28,6 +28,8 @@ TagManager:
   - ElevatorStart
   - ElevatorEnd
   - UIRoom
+  - MinZoom
+  - MaxZoom
   layers:
   - Default
   - TransparentFX
