@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     public Transform Target, Player;
     float mouseX, mouseY;
     public GameObject checkPoints;
-
+    public float cameraObstructionDistance = 20f;
     
 
 
@@ -74,15 +74,21 @@ public class CameraController : MonoBehaviour
     public void zoom()
     {
         //MouseWheel Zoom In 
-        if (mouseScrollY > 0)
-        {
-            transform.Translate(Vector3.forward * zoomSpeed * Time.deltaTime);
-        }
+        //if (Distance <= MinDistance)
+        //{
+            if (mouseScrollY > 0)
+            {
+                transform.Translate(Vector3.forward * zoomSpeed * Time.deltaTime);
+            }
+        //}
         //MouseWheel Zoom Out
-        if (mouseScrollY < 0)
-        {
-            transform.Translate(Vector3.back * zoomSpeed * Time.deltaTime);
-        }
+        //if (Distance >= MaxDistance)
+        //{
+            if (mouseScrollY < 0)
+            {
+                transform.Translate(Vector3.back * zoomSpeed * Time.deltaTime);
+            }
+        //}
         
     }
 
@@ -93,7 +99,7 @@ public class CameraController : MonoBehaviour
 
         //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 
-        if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 20f))
+        if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, cameraObstructionDistance))
         {
             
             //Makes sure the player isnt obstructing the camera
@@ -124,5 +130,20 @@ public class CameraController : MonoBehaviour
     {
         zoomSpeed = newZoomSpeed;
     }
+
+
+    /// <summary>
+    /// Trying to restrict camera scrolling movement
+    /// </summary>
+
+    //public float Distance;
+    //public float MinDistance = 1;
+    //public float MaxDistance = 10;
+    //public GameObject Camera;
+
+    //private void Update()
+    //{
+    //   Distance = Camera.transform.position.z - Player.position.z;
+    //}
 
 }
