@@ -8,9 +8,44 @@ public class MovingPots : MonoBehaviour
 
     //public GameObject Player;
 
+    public bool playerInside = false;
+
+    public GameObject _player;
+    public GameObject _hazardCheck;
+    public GameObject _MovePlayer;
+
     // Update is called once per frame
+
+    private void Awake()
+    {
+        _player = GameObject.Find("Player");
+        _hazardCheck = GameObject.Find("Hazard Check");
+    }
+
     void Update()
     {
+        
+
+        if (playerInside)
+        {
+            _hazardCheck.GetComponent<Rigidbody>().isKinematic = false;
+            //_player.transform.position = transform.position;
+            
+            
+            //_player.transform.position += transform.forward * Time.deltaTime * speed;
+
+            _player.transform.position += Vector3.forward * Time.deltaTime * speed;
+
+
+            _MovePlayer.SetActive(true);
+
+
+        }
+        else
+        {
+            _hazardCheck.GetComponent<Rigidbody>().isKinematic = true;
+            _MovePlayer.SetActive(false);
+        }
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 
@@ -23,7 +58,9 @@ public class MovingPots : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            other.transform.SetParent(transform);
+            //other.transform.SetParent(transform);
+            //_player.transform.parent = transform;
+            playerInside = true;
         }
     }
 
@@ -31,7 +68,9 @@ public class MovingPots : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.SetParent(null);
+            //other.transform.SetParent(null);
+            //_player.transform.parent = null;
+            playerInside = false;
         }
     }
 }
