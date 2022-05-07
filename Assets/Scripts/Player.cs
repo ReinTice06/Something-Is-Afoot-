@@ -123,11 +123,6 @@ public class Player : MonoBehaviour
         checkForPower();
         SprintDust();
     }
-    private void LateUpdate()
-    {
-        
-    }
-
     //Player Movement
     public void playerMovement()
     {
@@ -184,7 +179,7 @@ public class Player : MonoBehaviour
         if (jumpControl.action.triggered && isGrounded)
         {
             //Start lunge coroutine
-            StartCoroutine(lunge());
+            //StartCoroutine(lunge());
             //Jumps the player
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
