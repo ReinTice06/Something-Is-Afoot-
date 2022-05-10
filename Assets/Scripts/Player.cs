@@ -179,10 +179,10 @@ public class Player : MonoBehaviour
         if (jumpControl.action.triggered && isGrounded)
         {
             //Start lunge coroutine
-            if (!crouching)
-            {
-                StartCoroutine(lunge());
-            }
+            //if (!crouching)
+            //{
+            //    StartCoroutine(lunge());
+            //}
             //Jumps the player
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -201,7 +201,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         //subtracts previous force
         playerVelocity -= jumpDirection * 2;
-
         yield return null;
     }
 

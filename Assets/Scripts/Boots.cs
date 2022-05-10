@@ -137,7 +137,8 @@ public class Boots : MonoBehaviour
     //Fire boot button
     public void FireBootButton()
     {
-        
+        //Ensures sprint is inactive
+        StopCoroutine(hazardCheck.BaseBootDamage());
         //Turns on fire boots
         fireBoot = true;
         //Sets power bar to fire boot power bar
@@ -158,7 +159,8 @@ public class Boots : MonoBehaviour
     //Water boot button
     public void WaterBootButton()
     {
-        
+        //Ensures sprint is inactive
+        StopCoroutine(hazardCheck.BaseBootDamage());
         //Turns on water boots
         waterBoot = true;
         //Sets power bar to water power bar

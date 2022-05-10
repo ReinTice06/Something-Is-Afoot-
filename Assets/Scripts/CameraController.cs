@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     private bool minDist = false;
     private bool maxDist = false;
 
-
+    public List<Transform> currentwalls;
 
     //See through walls
     public Transform Obstruction;
@@ -104,21 +104,32 @@ public class CameraController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, cameraObstructionDistance))
         {
-            
+
             //Makes sure the player isnt obstructing the camera
             if (hit.collider.tag == "Wall")
             {
+                
                 Obstruction = hit.transform;
+                currentwalls.Add(Obstruction);
+                foreach (Transform Obstruction in currentwalls)
+                {
+                    //Hides wall but allows shadows to still be present
+                    Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
 
-                //Hides wall but allows shadows to still be present
-                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+                }
+
             }
             else
             {
-                //Turns the wall back to visible
-                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-            }
+                foreach (Transform Obstruction in currentwalls)
+                {
+                    //Turns the wall back to visible
+                    Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                    currentwalls.Remove(Obstruction);
 
+                }
+
+            }
         }
 
     }
