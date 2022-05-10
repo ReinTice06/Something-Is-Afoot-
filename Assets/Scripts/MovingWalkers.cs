@@ -8,4 +8,12 @@ public class MovingWalkers : MonoBehaviour
     {
         transform.position += transform.forward * Time.deltaTime * 3f;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("KillPots"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
