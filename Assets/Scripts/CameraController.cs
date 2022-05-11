@@ -14,9 +14,12 @@ public class CameraController : MonoBehaviour
     public Transform Target, Player;
     float mouseX, mouseY;
     public GameObject checkPoints;
-    public float cameraObstructionDistance = 20f;
+    public float cameraObstructionDistance = 70f;
     private bool minDist = false;
     private bool maxDist = false;
+    private bool noMoreWall = false;
+
+    public GameObject CameraPos;
 
     public List<Transform> currentwalls;
 
@@ -104,32 +107,51 @@ public class CameraController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, cameraObstructionDistance))
         {
-
-            //Makes sure the player isnt obstructing the camera
             if (hit.collider.tag == "Wall")
             {
-                
-                Obstruction = hit.transform;
-                currentwalls.Add(Obstruction);
-                foreach (Transform Obstruction in currentwalls)
-                {
-                    //Hides wall but allows shadows to still be present
-                    Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-
-                }
+                //If a wall is in the way move camera towards player
+                transform.position = Vector3.Lerp(transform.position, Target.position, Time.deltaTime * 2);
 
             }
             else
             {
-                foreach (Transform Obstruction in currentwalls)
+                //If a wall is no longer in the way move camera back 
+                if (Vector3.Distance(transform.position, Target.position) < 4f)
                 {
-                    //Turns the wall back to visible
-                    Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-                    currentwalls.Remove(Obstruction);
-
+                    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
                 }
-
             }
+            ////Makes sure the player isnt obstructing the camera
+            //if (hit.collider.tag == "Wall")
+            //{
+            //    //if (noMoreWall == false)
+            //    //{
+            //    //    noMoreWall = true;
+            //        Obstruction = hit.transform;
+            //    if (!currentwalls.Contains(Obstruction))
+            //    {
+            //        currentwalls.Add(Obstruction);
+                
+            //        foreach (Transform Obstruction in currentwalls)
+            //        {
+            //            //Hides wall but allows shadows to still be present
+            //            Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    //noMoreWall = false;
+            //    foreach (Transform Obstruction in currentwalls)
+            //    {
+            //        //Turns the wall back to visible
+            //        Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            //        currentwalls.Remove(Obstruction);
+
+            //    }
+
+            //}
         }
 
     }
