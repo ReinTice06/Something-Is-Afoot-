@@ -17,11 +17,9 @@ public class CameraController : MonoBehaviour
     public float cameraObstructionDistance = 70f;
     private bool minDist = false;
     private bool maxDist = false;
-    private bool noMoreWall = false;
 
-    public GameObject CameraPos;
 
-    public List<Transform> currentwalls;
+    //public List<Transform> currentwalls;
 
     //See through walls
     public Transform Obstruction;
@@ -116,10 +114,10 @@ public class CameraController : MonoBehaviour
             else
             {
                 //If a wall is no longer in the way move camera back 
-                if (Vector3.Distance(transform.position, Target.position) < 4f)
-                {
-                    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
-                }
+                //if (Vector3.Distance(transform.position, Target.position) < 4f)
+                //{
+                //    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
+                //}
             }
             ////Makes sure the player isnt obstructing the camera
             //if (hit.collider.tag == "Wall")
