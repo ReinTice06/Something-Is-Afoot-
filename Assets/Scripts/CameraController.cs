@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
     }
-
+    
     private void LateUpdate()
     {
         //Camera Movement
@@ -56,6 +56,7 @@ public class CameraController : MonoBehaviour
         ViewObstructed();
         CameraZoomDistance();
     }
+    
 
     public void camControl()
     {
@@ -116,7 +117,7 @@ public class CameraController : MonoBehaviour
                 //If a wall is no longer in the way move camera back
                 if (Vector3.Distance(transform.position, Target.position) < 4f)
                 {
-                    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
+                    transform.Translate(Vector3.back * 2 * Time.deltaTime);
                 }
             }
             ////Makes sure the player isnt obstructing the camera
