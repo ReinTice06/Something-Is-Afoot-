@@ -113,11 +113,11 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                //If a wall is no longer in the way move camera back 
-                //if (Vector3.Distance(transform.position, Target.position) < 4f)
-                //{
-                //    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
-                //}
+                //If a wall is no longer in the way move camera back
+                if (Vector3.Distance(transform.position, Target.position) < 4f)
+                {
+                    transform.Translate(Vector3.back * Time.deltaTime * 2, Space.Self);
+                }
             }
             ////Makes sure the player isnt obstructing the camera
             //if (hit.collider.tag == "Wall")
